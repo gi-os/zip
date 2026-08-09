@@ -1,4 +1,4 @@
-const VERSION = 'zip-v1';
+const VERSION = 'zip-v2';
 const ASSETS = [
   './',
   './index.html',

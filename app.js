@@ -210,7 +210,7 @@
     if (solved) return;
     const i = cellAt(e); if (i < 0) return;
     e.preventDefault();
-    board.setPointerCapture(e.pointerId);
+    try { board.setPointerCapture(e.pointerId); } catch (err) {}
     drawing = true;
     const at = path.indexOf(i);
     if (at >= 0) { path.length = at + 1; buzz(6); }
