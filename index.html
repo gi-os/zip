@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Zip</title>
+<meta name="description" content="Zip — draw one path through every square, in order. Unlimited puzzles.">
+<meta name="theme-color" content="#f4f2ee">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Zip">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icons/icon-192.png">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+<div class="app">
+
+  <header class="top">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h9L5 19h14" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Zip</span>
+      <em id="forWho">for Jordann</em>
+    </div>
+    <div class="clock" id="clock">0:00</div>
+  </header>
+
+  <nav class="levels" id="levels">
+    <button data-level="easy">Easy</button>
+    <button data-level="medium" class="on">Medium</button>
+    <button data-level="hard">Hard</button>
+  </nav>
+
+  <main class="stage">
+    <div class="boardwrap">
+      <div class="board" id="board">
+        <div class="cells" id="cells"></div>
+        <svg class="ink" id="ink" preserveAspectRatio="none" aria-hidden="true"></svg>
+        <div class="nums" id="nums"></div>
+      </div>
+      <p class="hud" id="hud">Drag from <b>1</b> to the last number. Fill every square.</p>
+    </div>
+  </main>
+
+  <footer class="controls">
+    <button id="btnUndo" class="ctl"><svg viewBox="0 0 24 24"><path d="M9 14L4 9l5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 9h9a6 6 0 0 1 0 12H8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Undo</span></button>
+    <button id="btnClear" class="ctl"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Clear</span></button>
+    <button id="btnHint" class="ctl"><svg viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5.9 1.1 1 1.8l.1.8h4.8l.1-.8c.1-.7.4-1.3 1-1.8A6 6 0 0 0 12 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9.8 20h4.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Hint<i id="hintCount"></i></span></button>
+    <button id="btnNew" class="ctl primary"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M20 3v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>New</span></button>
+  </footer>
+
+</div>
+
+<div class="sheet" id="win" hidden>
+  <div class="card">
+    <div class="burst" id="burst"></div>
+    <h2 id="winTitle">Zipped!</h2>
+    <div class="bigtime" id="winTime">0:00</div>
+    <div class="statrow">
+      <div><b id="statBest">—</b><span>Best</span></div>
+      <div><b id="statPlayed">0</b><span>Solved</span></div>
+      <div><b id="statHints">0</b><span>Hints used</span></div>
+    </div>
+    <button class="wide primary" id="winNew">Next puzzle</button>
+    <button class="wide ghost" id="winShare">Share this puzzle</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="./engine.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>
